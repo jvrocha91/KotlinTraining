@@ -2,3 +2,13 @@ fun main(){
     //my code 
     println("Hello Word")
 }
+
+fun main2() {
+    val casas = listOf("pequenas","medias","grandes")
+    println(casas)
+    val pessoas: MutableList<String> = mutableListOf("Joao","Pedro","Matheus")
+    println(pessoas)    
+    println("O primeiro nome da lista é ${pessoas[0]}")
+    println("O ultimo nome da lista é ${pessoas.last()}")
+       
+}
