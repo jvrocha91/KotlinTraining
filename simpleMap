@@ -1,0 +1,43 @@
+fun main() {
+    var estoque: MutableMap<String, Int> = mutableMapOf("lapis" to 7, "caneta" to 12, "borracha" to 5)
+    var continuar = true
+    while (continuar) {
+        println("Escolha uma opcao:\n1-Adicionar produto\n2-Remover Produto\n3-Exibir produtos\n4-Sair")
+        val menu = readLine()
+        when (menu) {
+            "1" -> {
+                println("Adicionar produto\nDigite o nome do produto:")
+                val nomeProduto = readLine() ?: ""
+                println("Digite a quantidade do produto:")
+                val quantidadeProduto = readLine()?.toIntOrNull() ?: 0
+                if (nomeProduto.isNotEmpty()) {
+                    estoque[nomeProduto] = estoque.getOrDefault(nomeProduto, 0) + quantidadeProduto
+                    println("Produto adicionado/atualizado.")
+                } else {
+                    println("Nome do produto não pode ser vazio.")
+                }
+            }
+            "2" -> {
+                println("Remover Produto")
+                val nomeProduto = readLine()
+                if (nomeProduto != null && nomeProduto in estoque) {
+                    estoque.remove(nomeProduto)
+                    println("Produto removido.")
+                } else {
+                    println("O produto não está no estoque!")
+                }
+            }
+            "3" -> {
+                println("Exibir produtos:")
+                estoque.forEach { (produto, quantidade) ->
+                    println("$produto: $quantidade")
+                }
+            }
+            "4" -> {
+                println("Saindo...")
+                continuar = false
+            }
+            else -> println("Opção inválida.")
+        }
+    }
+}
