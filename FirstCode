@@ -24,3 +24,56 @@ fun main3() {
         })
     }
 }
+
+fun main4() {
+    var nomes = mutableListOf("Joao", "Matheus", "Davi")
+    var continuar = true
+    while (continuar) {
+        println("Escolha uma das opcoes:\n1-Adicionar nome 2-Remover nome 3-Exibir lista 4-Buscar nome 5-Sair")
+        val escolha = readLine() 
+        when (escolha) {
+            "1" -> {
+                println("Digite o nome para adicionar:")
+                val nome = readLine() ?: ""
+                nomes = adicionarNome(nomes, nome)
+            }
+            "2" -> {
+                println("Digite o nome para remover:")
+                val nome = readLine() ?: ""
+                nomes = removerNome(nomes, nome)
+            }
+            "3" -> exibirNomes(nomes)
+            "4" -> {
+                println("Digite o nome para buscar:")
+                val nome = readLine() ?: ""
+                buscarNome(nomes, nome)
+            }
+            "5" -> continuar = false
+            else -> println("Opção inválida")
+        }
+    }
+}
+
+fun adicionarNome(nomes: MutableList<String>, nome: String): MutableList<String> {
+    nomes.add(nome)
+    return nomes
+}
+
+fun removerNome(nomes: MutableList<String>, nome: String): MutableList<String> {
+    if (!nomes.remove(nome)) {
+        println("Nome não encontrado.")
+    }
+    return nomes
+}
+
+fun exibirNomes(nomes: List<String>) {
+    println(nomes)
+}
+
+fun buscarNome(nomes: List<String>, nome: String) {
+    if (nome in nomes) {
+        println("$nome está na lista.")
+    } else {
+        println("O nome não está na lista.")
+    }
+}
