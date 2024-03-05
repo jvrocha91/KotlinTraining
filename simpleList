@@ -1,0 +1,33 @@
+fun main() {
+    val nomes = mutableListOf("Joao", "Matheus", "Davi")
+    var continuar = true
+    while (continuar){
+        println("Escolha uma das opções:\n1-Adicionar nome\n2-Remover nome\n3-Exibir lista\n4-Buscar nome\n5-Sair")
+        val escolha= readLine()
+        
+        when (escolha){
+            
+            "1"->{println("Digite um nome para a lista:")
+            var nome=readLine()
+            nomes.add(nome)}
+            
+            "2"->{println("Digite um nome para remover da lista:")
+            var nome=readLine()
+            if (nome in nomes){
+                nomes.remove(nome)
+            }else{println("O nome nao esta na lista!")}}
+            
+            "3"->{println("Lista de nomes:\n$nomes")}
+            
+            "4"->{println("Buscar nomes:")
+            var nome=readLine()
+            if (nome in nomes){
+                println("$nome esta na lista!")
+            }else{println("O nome nao esta na lista")}}
+            
+            "5"->{println("Sair")
+            continuar=false}
+                               
+}             
+    }
+}
