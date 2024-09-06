@@ -1,0 +1,20 @@
+enum class PaymentMethod{
+    DINHEIRO,
+    CREDITO,
+    DEBITO,
+    PIX
+}
+
+fun pay(total:Double, metodo:PaymentMethod):Boolean{
+    return when(metodo){
+        PaymentMethod.DINHEIRO -> payWithMoney(total)
+        PaymentMethod.CREDITO -> payWithCredito(total)
+        PaymentMethod.DEBITO -> payWithDebito(total)
+        PaymentMethod.PIX -> payWithPix(total)
+    }
+}
+
+fun main() {
+    val pagamentoConcluido = pay(191.0 , "PIX")
+    println("Pagamento efetuado com sucesso: $pagamentoConcluido")
+}
