@@ -1,0 +1,25 @@
+interface Animal {
+    var name: String
+    var raca: String
+    fun som()
+}
+
+class Cat(override var name: String, override var raca: String) : Animal {
+    override fun som() {
+        println("MIAAAAUUU")
+    }
+}
+
+class Dog(override var name: String, override var raca: String) : Animal {
+    override fun som() {
+        println("AU AU")
+    }
+}
+
+fun main() {
+    var cachorro = Dog("Nick", "Pintcher")
+    cachorro.som()
+    
+    var gato = Cat("Mimi", "Siames")
+    gato.som()
+}
